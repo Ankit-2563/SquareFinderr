@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Square root Finder</title>
+    <style>
+      * {
+        font-size: 50px;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+      body {
+        background-color: royalblue;
+      }
+    </style>
+
+    <script>
+      function find() {
+        event.preventDefault();
+        let num = document.getElementById("num");
+        let ans = document.getElementById("ans");
+
+        if (num.value == "") {
+          alert("Number is Blank");
+          ans.innerHTML = "";
+          num.focus();
+          return;
+        }
+        let n = parseFloat(num.value);
+
+        if (n < 0.0) {
+          alert("Negative numbers are not allowed");
+          ans.innerHTML = "";
+          num.focus();
+          return;
+        }
+
+        let r = Math.sqrt(n);
+        let msg = "sqrt= " + r.toFixed(2);
+        ans.innerHTML = msg;
+      }
+    </script>
+  </head>
+  <body>
+    <center>
+      <h1>Square root Finder</h1>
+      <form onsubmit="find()">
+        <input
+          type="number"
+          step="any"
+          id="num"
+          placeholder="Enter your number"
+        />
+        <!--Step="any" allows to get dec point -->
+        <br /><br />
+        <input type="submit" value="find" />
+      </form>
+      <h2 id="ans"></h2>
+    </center>
+  </body>
+</html>
